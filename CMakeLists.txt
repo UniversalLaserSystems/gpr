@@ -32,10 +32,39 @@ target_link_libraries(all-tests gpr)
 add_executable(parse-gcode src/main.cpp)
 target_link_libraries(parse-gcode gpr)
 
-install(TARGETS gpr LIBRARY DESTINATION lib)
+install(
+  TARGETS gpr EXPORT gpr-targets 
+  LIBRARY DESTINATION lib)
+
 install(
   FILES 
     src/parser.h
     src/gcode_program.h
   DESTINATION
     include/gpr)
+
+export(EXPORT gpr-targets
+        FILE "${CMAKE_CURRENT_BINARY_DIR}/gpr/GprTargets.cmake"
+        NAMESPACE gpr::
+        )
+
+install(EXPORT gpr-targets
+        FILE
+        GprTargets.cmake
+        NAMESPACE
+        gpr::
+        DESTINATION
+        lib/cmake/gpr
+        )
+
+configure_file(GprConfig.cmake
+        "${CMAKE_CURRENT_BINARY_DIR}/gpr/GprConfig.cmake"
+        COPYONLY
+        )
+
+install(
+        FILES
+        ${CMAKE_CURRENT_BINARY_DIR}/gpr/GprConfig.cmake
+        DESTINATION lib/cmake/gpr
+)
+
