@@ -21,7 +21,7 @@ SET(GPR_CPPS src/parser.cpp
 
 set(CMAKE_MACOSX_RPATH 1)
 
-add_library(gpr SHARED ${GPR_CPPS})
+add_library(gpr STATIC ${GPR_CPPS})
 
 SET(TEST_FILES test/parser_tests.cpp
 	       test/main.cpp)
@@ -33,3 +33,4 @@ add_executable(parse-gcode src/main.cpp)
 target_link_libraries(parse-gcode gpr)
 
 install(TARGETS gpr LIBRARY DESTINATION lib)
+install(FILES src/parser.h DESTINATION include/gpr)
