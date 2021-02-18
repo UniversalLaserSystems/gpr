@@ -33,4 +33,9 @@ add_executable(parse-gcode src/main.cpp)
 target_link_libraries(parse-gcode gpr)
 
 install(TARGETS gpr LIBRARY DESTINATION lib)
-install(FILES src/parser.h DESTINATION include/gpr)
+install(
+  FILES 
+    src/parser.h
+    src/gcode_program.h
+  DESTINATION
+    include/gpr)
