@@ -320,7 +320,7 @@ namespace gpr {
     vector<block> blocks;
     std::istringstream tokenStream(str);
     std::string line;
-    while (std::getline(tokenStream, line, '\n') {
+    while (std::getline(tokenStream, line, '\n')) {
       if (line.size() > 0) {
         vector<string> line_tokens = lex_block(line);
         block b = parse_tokens(line_tokens);
