@@ -318,26 +318,18 @@ namespace gpr {
 
   vector<block> lex_gprog(const string& str) {
     vector<block> blocks;
-    string::const_iterator line_start = str.begin();
-    string::const_iterator line_end;
-
-    while (line_start < str.end()) {
-      line_end = find(line_start, str.end(), '\n');
-      string line(line_start, line_end);
-
+    std::istringstream tokenStream(str);
+    std::string line;
+    while (std::getline(tokenStream, line, '\n') {
       if (line.size() > 0) {
-
-	vector<string> line_tokens = lex_block(line);
-
-	block b = parse_tokens(line_tokens);
-	blocks.push_back(b);
+        vector<string> line_tokens = lex_block(line);
+        block b = parse_tokens(line_tokens);
+        blocks.push_back(b);
       }
-
-      line_start += line.size() + 1;
     }
     return blocks;
   }
-  
+
   gcode_program parse_gcode(const std::string& program_text) {
     auto blocks = lex_gprog(program_text);
     return gcode_program(blocks);
