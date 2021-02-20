@@ -154,7 +154,7 @@ namespace gpr {
       cout << "Invalid c = " << c << endl;
       cout << "Invalid c as int = " << ((int) c) << endl;
       cout << "Is EOF? " << (((int) c) == EOF) << endl;
-      assert(false);
+      return make_int_address(0);
     }
   }
   
