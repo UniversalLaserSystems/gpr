@@ -41,27 +41,27 @@ install(
     include/gpr)
 
 export(EXPORT gpr-targets
-        FILE "${CMAKE_CURRENT_BINARY_DIR}/gpr/GprTargets.cmake"
+        FILE "${CMAKE_CURRENT_BINARY_DIR}/gpr/gprTargets.cmake"
         NAMESPACE gpr::
         )
 
 install(EXPORT gpr-targets
         FILE
-        GprTargets.cmake
+        gprTargets.cmake
         NAMESPACE
         gpr::
         DESTINATION
         lib/cmake/gpr
         )
 
-configure_file(GprConfig.cmake
-        "${CMAKE_CURRENT_BINARY_DIR}/gpr/GprConfig.cmake"
+configure_file(gprConfig.cmake
+        "${CMAKE_CURRENT_BINARY_DIR}/gpr/gprConfig.cmake"
         COPYONLY
         )
 
 install(
         FILES
-        ${CMAKE_CURRENT_BINARY_DIR}/gpr/GprConfig.cmake
+        ${CMAKE_CURRENT_BINARY_DIR}/gpr/gprConfig.cmake
         DESTINATION lib/cmake/gpr
 )
 
