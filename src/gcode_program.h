@@ -214,7 +214,7 @@ namespace gpr {
 	return true;
       } else {
         assert(false);
-        return false
+        return false;
       }
 
       return false;
