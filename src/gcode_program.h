@@ -213,7 +213,8 @@ namespace gpr {
 	// Any 2 percent chunks are always equal
 	return true;
       } else {
-	assert(false);
+        assert(false);
+        return false
       }
 
     }
